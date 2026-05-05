@@ -1,39 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><title>Terms of Service — EnDroit</title></head>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — EnDroit</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f; --surface: #13131a; --border: rgba(255,255,255,0.08);
+      --accent: #FFD700; --text: #e8e8f0; --muted: #8888aa;
+    }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 16px; line-height: 1.6; }
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px; border-bottom: 1px solid var(--border);
+      background: rgba(10,10,15,0.95); position: sticky; top: 0;
+      backdrop-filter: blur(12px); z-index: 10;
+    }
+    .nav-logo { font-size: 20px; font-weight: 800; color: var(--accent); letter-spacing: -0.5px; text-decoration: none; }
+    .nav-logo span { color: var(--text); }
+    .nav-back { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+    .nav-back:hover { color: var(--text); }
+    .content { max-width: 740px; margin: 0 auto; padding: 64px 40px 80px; }
+    .content-header { margin-bottom: 48px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+    .content-header h1 { font-size: 32px; font-weight: 800; color: #fff; letter-spacing: -0.8px; margin-bottom: 8px; }
+    .content-header .meta { font-size: 13px; color: var(--muted); }
+    h2 { font-size: 18px; font-weight: 700; color: #fff; margin: 36px 0 10px; padding-top: 4px; border-top: 1px solid var(--border); }
+    h2:first-of-type { border-top: none; }
+    p { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 12px; }
+    ul { padding-left: 22px; margin-bottom: 12px; }
+    li { font-size: 15px; color: var(--muted); line-height: 1.75; margin-bottom: 4px; }
+    strong { color: var(--text); }
+    a { color: #0A84FF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    footer { max-width: 740px; margin: 0 auto; padding: 24px 40px 40px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    footer span { font-size: 13px; color: var(--muted); }
+    footer a { font-size: 13px; color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    @media (max-width: 600px) { nav { padding: 14px 20px; } .content { padding: 40px 20px 60px; } footer { padding: 20px; } }
+  </style>
+</head>
 <body>
-<h1>Terms of Service — EnDroit</h1>
-<p><em>Last updated: May 2026</em></p>
 
-<h2>1. Overview</h2>
-<p>These Terms of Service govern the use of the EnDroit application, a personal automation tool developed and operated solely by Gillian Masse. By accessing or using the Application, you acknowledge that it is a private, non-commercial tool not intended for public use.</p>
+  <nav>
+    <a class="nav-logo" href="/"><strong>En</strong><span>Droit</span></a>
+    <a class="nav-back" href="/">← Back to home</a>
+  </nav>
 
-<h2>2. Nature of the Service</h2>
-<p>EnDroit is a command-line desktop application that automates the creation and publication of short legal education videos on TikTok. It is not a public platform, marketplace, or commercial service. Access to the Application is restricted to the Developer alone.</p>
-<p>The Application uses the TikTok Content Posting API solely for the purpose of uploading and publishing video content created by the Developer to their own TikTok account.</p>
+  <div class="content">
+    <div class="content-header">
+      <h1>Terms of Service</h1>
+      <p class="meta">Last updated: May 2026 · EnDroit by Gillian Masse</p>
+    </div>
 
-<h2>3. Eligibility and Access</h2>
-<p>The Application is operated exclusively by its creator. No registration, subscription, or account creation is available or required for third parties. No public access is provided.</p>
+    <h2>1. Overview</h2>
+    <p>These Terms of Service govern the use of the EnDroit application ("the Application"), a personal automation tool developed and operated solely by Gillian Masse ("the Developer"). By accessing or using the Application, you acknowledge that it is a private, non-commercial tool not intended for public use.</p>
 
-<h2>4. Intellectual Property</h2>
-<p>All video content produced by EnDroit is the exclusive intellectual property of Gillian Masse. The Application itself, including its source code and pipeline architecture, is proprietary and not licensed for redistribution without explicit written permission.</p>
+    <h2>2. Nature of the Service</h2>
+    <p>EnDroit is a desktop application that automates the creation and publication of short legal education videos on TikTok. It is not a public platform, marketplace, or commercial service. Access to the Application is restricted to the Developer alone.</p>
+    <p>The Application uses the TikTok Content Posting API solely for the purpose of uploading and publishing video content created by the Developer to their own TikTok account.</p>
 
-<h2>5. Third-Party Services</h2>
-<p>The Application integrates with the following third-party services:</p>
-<ul>
-<li>TikTok (Content Posting API) — for video publication</li>
-<li>Anthropic Claude API — for script generation</li>
-<li>Remotion — for video rendering</li>
-<li>Pexels — for background video footage</li>
-</ul>
+    <h2>3. Eligibility and Access</h2>
+    <p>The Application is operated exclusively by its creator. No registration, subscription, or account creation is available or required for third parties. No public access is provided.</p>
 
-<h2>6. Disclaimer of Warranties</h2>
-<p>The Application is provided "as is" without warranty of any kind. The videos produced are for educational purposes only and do not constitute legal advice.</p>
+    <h2>4. Intellectual Property</h2>
+    <p>All video content produced by EnDroit, including scripts, visual compositions, and associated metadata, is the exclusive intellectual property of Gillian Masse. The Application itself, including its source code, configuration files, and pipeline architecture, is proprietary and not licensed for redistribution without explicit written permission from the Developer.</p>
 
-<h2>7. Governing Law</h2>
-<p>These Terms are governed by the laws of France.</p>
+    <h2>5. Third-Party Services</h2>
+    <p>The Application integrates with the following third-party services, each subject to their own terms:</p>
+    <ul>
+      <li><strong>TikTok (Content Posting API)</strong> — for video publication</li>
+      <li><strong>Anthropic Claude API</strong> — for script generation</li>
+      <li><strong>Remotion</strong> — for video rendering</li>
+      <li><strong>Pexels</strong> — for background video footage</li>
+    </ul>
 
-<h2>8. Contact</h2>
-<p>gillian83.masse@gmail.com</p>
+    <h2>6. Disclaimer of Warranties</h2>
+    <p>The Application is provided "as is" without warranty of any kind, express or implied. The videos produced are for educational purposes only and do not constitute legal advice.</p>
+
+    <h2>7. Limitation of Liability</h2>
+    <p>To the fullest extent permitted by applicable law, the Developer shall not be liable for any indirect, incidental, special, or consequential damages arising from the use of the Application or its content.</p>
+
+    <h2>8. Governing Law</h2>
+    <p>These Terms are governed by and construed in accordance with the laws of France. Any disputes shall be subject to the exclusive jurisdiction of the courts of France.</p>
+
+    <h2>9. Changes to These Terms</h2>
+    <p>The Developer reserves the right to modify these Terms at any time. Changes will be reflected by an updated "Last updated" date above.</p>
+
+    <h2>10. Contact</h2>
+    <p>For any questions regarding these Terms, contact: <a href="mailto:gillian83.masse@gmail.com">gillian83.masse@gmail.com</a></p>
+  </div>
+
+  <footer>
+    <span><strong style="color:#FFD700">En</strong>Droit · Legal Education Automation</span>
+    <a href="privacy.html">Privacy Policy</a>
+  </footer>
+
 </body>
 </html>
