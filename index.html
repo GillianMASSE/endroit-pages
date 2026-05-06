@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EnDroit — Automated Short-Form Video Production</title>
+  <link rel="icon" type="image/png" href="icon.png">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -40,12 +41,16 @@
       z-index: 10;
     }
     .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 20px;
       font-weight: 800;
       color: var(--accent);
       letter-spacing: -0.5px;
       text-decoration: none;
     }
+    .nav-logo img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
     .nav-logo span { color: var(--text); }
     .nav-links { display: flex; gap: 28px; }
     .nav-links a {
@@ -282,7 +287,7 @@
 <body>
 
   <nav>
-    <a class="nav-logo" href="index.html"><strong>En</strong><span>Droit</span></a>
+    <a class="nav-logo" href="index.html"><img src="icon.png" alt="EnDroit app icon"><strong>En</strong><span>Droit</span></a>
     <div class="nav-links">
       <a href="#how-it-works">How it works</a>
       <a href="#about">About</a>
