@@ -1,0 +1,81 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost
+  title="How EnDroit auto-synchronizes captions at word level"
+  description="A look under the hood at the captioning pipeline. From audio waveform to readable groups of 4–5 words, with a 2.5-second display ceiling."
+  date="Apr 28, 2026"
+  readingTime="8 min read"
+  category="Engineering"
+>
+
+  <p>Captions feel simple. The video plays, the words appear in sync, the viewer reads them. Anyone who has actually shipped captioned short-form video knows what's hiding behind <em>in sync</em>: a sequence of decisions about word grouping, display duration, font sizing, line breaking, and contrast — each of which is its own small disaster waiting to happen.</p>
+
+  <p>Here's how EnDroit's captioning pipeline handles them. Some of this is well-known; some of it is the kind of detail you only learn after you've watched 200 videos burn because the captions were unreadable on a metro screen.</p>
+
+  <h2>Step 1: word-level timing</h2>
+
+  <p>Most caption tools work at the phrase level. Whisper, MFA, ElevenLabs forced alignment — they all return per-word timestamps. Use them. Phrase-level captions can't keep up with a 3-words-per-second speaker, and the resulting "block of text appears, block of text disappears" rhythm is what makes amateur captioned videos feel amateur.</p>
+
+  <p>EnDroit gets word timings from one of three sources, in order of preference:</p>
+
+  <ol>
+    <li>ElevenLabs forced alignment, when you use the built-in voice synthesis</li>
+    <li>Whisper (large-v3) word-level transcription, when you upload your own voice</li>
+    <li>A linear estimate (length × 0.06 + 0.25s per word), only as a fallback when the audio file is silent or fails to transcribe</li>
+  </ol>
+
+  <h2>Step 2: word grouping (this is where it gets interesting)</h2>
+
+  <p>Word-by-word captions are technically possible but unreadable. The eye can't keep up with single words appearing and disappearing at speech rate. The answer is to group words into <em>reading chunks</em> — typically 4 to 5 words per chunk, displayed for around 1.2 to 2.0 seconds.</p>
+
+  <p>The naive algorithm: every 4 words, cut a new chunk. This works 70% of the time and creates atrocious cuts the other 30% — words orphaned from their object, articles split from their noun, "ne pas" broken across two chunks.</p>
+
+  <p>What we ship in EnDroit is a slightly smarter version. The chunker has four rules, in order of priority:</p>
+
+  <ol>
+    <li><strong>Break on punctuation.</strong> A period, comma, or "—" is a natural pause. Cut there if possible.</li>
+    <li><strong>Break on long silences.</strong> If the gap between two words exceeds 220ms, that's almost always a phrase boundary. Cut there.</li>
+    <li><strong>Soft target: 4–5 words.</strong> Aim for chunks of this size when nothing else dictates the cut.</li>
+    <li><strong>Hard ceiling: 2.5 seconds.</strong> Never display a chunk for longer than this, even if it means cutting between bad words. The viewer's eye has stopped reading at that point regardless.</li>
+  </ol>
+
+  <p>Rule 4 is the one nobody talks about. People obsess about cutting in the right place; they forget that a perfectly-cut 4-second chunk is worse than a slightly-awkward 1.8-second chunk, because nobody reads a 4-second caption.</p>
+
+  <h2>Step 3: keyword emphasis</h2>
+
+  <p>For legal content specifically, certain words deserve visual weight. Article numbers, monetary amounts, jurisdiction names, and the words that carry the legal claim ("INTERDIT", "OBLIGATOIRE", "1 AN", "15 000 €") should pop visually so they're remembered after the video ends.</p>
+
+  <p>EnDroit's caption renderer scans each chunk for keywords from the script's "highlights" list. If a word matches, it's rendered at 76px instead of the default 68px, with an accent-colored glow. The viewer's eye latches on, the message lands, the audience retention curve tells you it worked.</p>
+
+  <h2>Step 4: positioning and contrast</h2>
+
+  <p>Captions for vertical video have one hostile neighbor: the platform's UI. The TikTok caption text and the description live in the bottom 280 pixels of the screen. Instagram Reels has a similar dead zone. Anything you display in that area is at best partially covered, at worst completely hidden.</p>
+
+  <p>EnDroit renders captions in the upper-middle third of the frame (the "safe band" we calibrated by overlay-testing on real TikTok). Every caption has:</p>
+
+  <ul>
+    <li>A semi-transparent black backdrop (rgba(0, 0, 0, 0.7)) for readability over any background</li>
+    <li>A 2px white text-shadow ring to maintain contrast even on bright backgrounds</li>
+    <li>A maximum line length of 26 characters before wrapping, tuned for 6-inch phone screens at arm's length</li>
+  </ul>
+
+  <h2>Step 5: the part where we throw most of it away</h2>
+
+  <p>After all of this, the renderer outputs a sequence of caption frames. Then we audit them. If any chunk:</p>
+
+  <ul>
+    <li>Has a display duration above 3 seconds</li>
+    <li>Has more than 7 words</li>
+    <li>Was cut mid-phrase against rule 1</li>
+  </ul>
+
+  <p>… we re-run the chunker with a tighter target. The audit catches the cases where the alignment data was noisy enough that the chunker made a poor call. About 1 in 8 videos triggers a re-run. We never ship a video where the audit still fails after two retries — we surface the error to the creator instead.</p>
+
+  <h2>Why this much engineering for "captions"</h2>
+
+  <p>Because retention on captioned short-form video is dominated by caption quality. We measured it on our beta cohort: videos with clean, on-time, properly-grouped captions average 67% retention. Videos with the same content but lazy captions (block-of-text or out-of-sync) average 41%. A 26-point retention delta is the difference between a video that gets recommended and a video that dies in your feed.</p>
+
+  <p>The viewer doesn't notice good captions. That's the goal. They notice bad ones, instantly, and they swipe.</p>
+
+</BlogPost>

@@ -1,0 +1,169 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  readingTime: string;
+  category: string;
+  author?: string;
+}
+
+const {
+  title,
+  description,
+  date,
+  readingTime,
+  category,
+  author = 'Gillian Masse',
+} = Astro.props;
+---
+<Layout title={`${title} — EnDroit Blog`} description={description}>
+
+  <article class="post-page">
+    <div class="container post-container">
+
+      <header class="post-header">
+        <a href="/blog" class="post-back">← All posts</a>
+        <span class="post-category">{category}</span>
+        <h1>{title}</h1>
+        <p class="post-excerpt">{description}</p>
+        <div class="post-meta">
+          <span>{author}</span>
+          <span>·</span>
+          <span>{date}</span>
+          <span>·</span>
+          <span>{readingTime}</span>
+        </div>
+      </header>
+
+      <div class="post-body">
+        <slot />
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-share">
+          <span>Found this useful?</span>
+          <a href="/signup" class="btn btn-primary">Try EnDroit free</a>
+        </div>
+      </footer>
+
+    </div>
+  </article>
+
+</Layout>
+
+<style>
+  .post-page { padding: 56px 0 32px; }
+  .post-container { max-width: 720px; }
+
+  .post-header {
+    margin-bottom: 48px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+  }
+  .post-back {
+    display: inline-block;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .post-back:hover { color: var(--accent); }
+  .post-category {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.4px;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+  .post-header h1 {
+    font-size: clamp(30px, 4.2vw, 42px);
+    margin-bottom: 16px;
+    line-height: 1.15;
+  }
+  .post-excerpt {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+
+  .post-body :global(p) {
+    font-size: 16px;
+    line-height: 1.85;
+    margin-bottom: 18px;
+    color: var(--text);
+  }
+  .post-body :global(h2) {
+    font-size: 24px;
+    margin: 36px 0 14px;
+    color: #fff;
+  }
+  .post-body :global(h3) {
+    font-size: 19px;
+    margin: 28px 0 10px;
+    color: #fff;
+  }
+  .post-body :global(ul),
+  .post-body :global(ol) {
+    padding-left: 26px;
+    margin-bottom: 18px;
+  }
+  .post-body :global(li) {
+    font-size: 16px;
+    line-height: 1.75;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+  .post-body :global(blockquote) {
+    border-left: 3px solid var(--accent);
+    padding: 6px 0 6px 22px;
+    margin: 24px 0;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .post-body :global(strong) { color: #fff; font-weight: 700; }
+  .post-body :global(em) { color: var(--accent); font-style: normal; font-weight: 600; }
+  .post-body :global(code) {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    padding: 2px 7px;
+    font-size: 14px;
+    color: var(--accent);
+    font-family: 'SF Mono', Menlo, Consolas, monospace;
+  }
+  .post-body :global(a) { color: var(--accent); }
+  .post-body :global(a:hover) { text-decoration: underline; }
+
+  .post-footer {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .post-share {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: 24px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+  .post-share span { color: var(--text); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .post-share { flex-direction: column; align-items: flex-start; }
+  }
+</style>
