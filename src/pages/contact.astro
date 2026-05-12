@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact — EnDroit" description="Get in touch with the EnDroit team. Support, partnerships, press, careers — we usually reply within 24 hours.">
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="badge">Get in touch</div>
+      <h1>Talk to a human.</h1>
+      <p class="page-lead">
+        Whether you're a creator with a question, a firm wanting a custom plan,
+        a press contact or a curious developer — we usually reply within 24h.
+      </p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="contact-grid">
+
+        <div>
+          <h2 style="font-size:24px;margin-bottom:20px">Send a message</h2>
+
+          <form action="mailto:gillian83.masse@gmail.com" method="post" enctype="text/plain" class="form">
+            <div class="form-row">
+              <label>
+                <span>Your name</span>
+                <input type="text" name="name" required placeholder="Camille Dupont" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required placeholder="you@example.com" />
+              </label>
+            </div>
+
+            <label>
+              <span>What's this about?</span>
+              <select name="reason">
+                <option>I want to apply for beta access</option>
+                <option>I have a billing or account question</option>
+                <option>I'm a creator and want to partner</option>
+                <option>I'm a law firm interested in Studio</option>
+                <option>Press / media enquiry</option>
+                <option>Careers</option>
+                <option>Something else</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Your message</span>
+              <textarea name="message" rows="6" required placeholder="Tell us what you need…"></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-primary form-submit">Send message</button>
+            <p class="form-note">
+              By submitting this form you agree to our
+              <a href="/privacy">privacy policy</a>. We never share your email.
+            </p>
+          </form>
+        </div>
+
+        <aside class="contact-aside">
+          <div class="card contact-card">
+            <h3>📧 General enquiries</h3>
+            <p>For everything else.</p>
+            <a href="mailto:gillian83.masse@gmail.com">gillian83.masse@gmail.com</a>
+          </div>
+
+          <div class="card contact-card">
+            <h3>💼 Sales (Studio plan)</h3>
+            <p>Custom plans for firms and creator teams.</p>
+            <a href="mailto:gillian83.masse@gmail.com?subject=Studio%20enquiry">gillian83.masse@gmail.com</a>
+          </div>
+
+          <div class="card contact-card">
+            <h3>🛟 Support</h3>
+            <p>Beta creators get priority support via email.</p>
+            <a href="mailto:gillian83.masse@gmail.com?subject=Support">gillian83.masse@gmail.com</a>
+          </div>
+
+          <div class="card contact-card">
+            <h3>📍 Based in</h3>
+            <p>Toulon, France 🇫🇷<br/>Operating across all EU time zones.</p>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero { padding: 72px 0 56px; }
+  .page-lead { font-size: 18px; max-width: 620px; line-height: 1.65; }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 56px;
+    align-items: flex-start;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .form label span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .form input,
+  .form select,
+  .form textarea {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s;
+  }
+  .form input:focus,
+  .form select:focus,
+  .form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .form textarea { resize: vertical; min-height: 120px; }
+
+  .form-submit {
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 14px 30px;
+  }
+  .form-note {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .form-note a { color: var(--accent); }
+
+  .contact-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contact-card { padding: 22px; }
+  .contact-card h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  .contact-card p {
+    font-size: 13px;
+    margin-bottom: 8px;
+    color: var(--muted);
+  }
+  .contact-card a {
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    word-break: break-all;
+  }
+
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

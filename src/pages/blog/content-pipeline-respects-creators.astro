@@ -1,0 +1,46 @@
+---
+import BlogPost from '../../layouts/BlogPost.astro';
+---
+<BlogPost
+  title="Building a content pipeline that respects creators"
+  description="Most automation tools treat creators as content factories. We built EnDroit on the opposite premise: tooling should disappear so expertise can take center stage."
+  date="May 8, 2026"
+  readingTime="5 min read"
+  category="Product"
+>
+
+  <p>The first version of EnDroit's pipeline was, by any reasonable measure, technically excellent. It could go from a topic to a fully rendered, captioned 60-second video in under 4 minutes. We were so pleased with the throughput that we forgot to ask the more important question: what did the creator have left to do?</p>
+
+  <p>Turn out: not much. And that was the problem.</p>
+
+  <h2>The temptation of "fully automated"</h2>
+
+  <p>When you build a content tool in 2026, the easiest pitch is <em>fully automated</em>. Push a button, get a video. Push the same button tomorrow, get another video. The investor deck practically writes itself.</p>
+
+  <p>But the moment you make a creator's expertise unnecessary, you have a problem. Not a technical problem — a positioning problem. If anyone can push the button and get the video, the video is worthless. The audience figures this out within months. Platforms figure it out within weeks. By the time you've reached scale, you've built a content factory that nobody wants to follow.</p>
+
+  <p>The creators who matter — the ones with retention rates above 60% and audience trust that converts — are the ones whose individual perspective is detectable in every video. The job of the tool is to amplify that perspective, not to replace it.</p>
+
+  <h2>Three design decisions we made differently</h2>
+
+  <p><strong>Decision 1: the script is the creator's, always.</strong> EnDroit's script editor lets you generate suggestions, rewrite them, override them, ignore them entirely. But the final text in the script field is whatever you typed. We never auto-publish a script you haven't explicitly approved. We never edit your scripts after the fact.</p>
+
+  <p><strong>Decision 2: the platform owns nothing.</strong> Your videos, your scripts, your hashtag libraries, your analytics — exportable in one click, in a format no other tool can claim as proprietary. If you cancel, you get a zip file with everything. We are intentionally easy to leave, because the moment we make you stuck, we've turned into the kind of platform we built EnDroit to replace.</p>
+
+  <p><strong>Decision 3: no engagement features.</strong> EnDroit does not have a "Suggested topics" feed. It does not surface "What creators like you are publishing." It does not gamify your post streak. The only notifications you get are: your render is done, your scheduled post went out, someone replied to your support ticket. Anything else is anti-feature.</p>
+
+  <h2>Why this matters for legal content specifically</h2>
+
+  <p>Legal content has a higher cost of error than most niches. A bad video about cooking ruins one dinner. A bad video about employment law convinces a viewer to confront their boss with a wrong assumption, and they get fired. Production quality is not vanity — it's a duty of care.</p>
+
+  <p>This is why our auto-disclaimer engine exists, but only as a safety net. The creator stays in control of the message. If we replaced the lawyer's judgment with an LLM's output, we'd be the problem we set out to solve.</p>
+
+  <h2>What "respect" looks like in the product</h2>
+
+  <p>It shows up in small choices. The "Generate" button is grey, not gold — we don't want it to feel like the dominant action. The script suggestions appear in a side panel that you can close, and most experienced users do. The render queue tells you when your video is ready, but never sends a marketing email piggybacking on that notification.</p>
+
+  <p>We took a lot of features out of the v1 because they crossed the line from "amplifying" to "replacing." It's not a finished process. Every release, we ask the same question: are we doing too much of the creator's work for them?</p>
+
+  <p>If we ever stop asking that, we'll have lost the plot.</p>
+
+</BlogPost>

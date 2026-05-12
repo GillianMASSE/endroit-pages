@@ -1,0 +1,230 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Apply for beta access — EnDroit" description="Apply for beta access to EnDroit. We review applications within 48 hours and onboard new creators every week.">
+
+  <section class="signup-section">
+    <div class="container signup-grid">
+
+      <div class="signup-left">
+        <div class="badge">Closed beta · Applications open</div>
+        <h1>Apply for early access.</h1>
+        <p class="lead">
+          We're onboarding 5–10 new creators per week. Tell us a bit about
+          yourself and your channel — we usually reply within 48 hours.
+        </p>
+
+        <ul class="signup-perks">
+          <li>
+            <span>✓</span>
+            <div>
+              <strong>Pro plan free during beta</strong>
+              All features unlocked while you help us iterate.
+            </div>
+          </li>
+          <li>
+            <span>✓</span>
+            <div>
+              <strong>50% lifetime discount</strong>
+              Beta creators lock in half price on Pro and Studio forever.
+            </div>
+          </li>
+          <li>
+            <span>✓</span>
+            <div>
+              <strong>Direct line to the team</strong>
+              Discord access, weekly office hours, your feedback shapes the roadmap.
+            </div>
+          </li>
+          <li>
+            <span>✓</span>
+            <div>
+              <strong>Early hashtag intelligence</strong>
+              Get the per-platform hashtag library before it launches publicly.
+            </div>
+          </li>
+        </ul>
+
+        <p class="signup-fineprint">
+          Already have an account? <a href="mailto:gillian83.masse@gmail.com?subject=Sign%20in%20issue">Email us</a> — sign-in via web UI ships in the next release.
+        </p>
+      </div>
+
+      <div class="signup-right">
+        <form action="mailto:gillian83.masse@gmail.com?subject=Beta%20application" method="post" enctype="text/plain" class="signup-form">
+          <h2 style="font-size:22px;margin-bottom:6px">Beta application</h2>
+          <p class="form-sub">5 fields. Should take 2 minutes.</p>
+
+          <label>
+            <span>Full name</span>
+            <input type="text" name="name" required placeholder="Camille Dupont" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" required placeholder="you@example.com" />
+          </label>
+
+          <label>
+            <span>Your main platform</span>
+            <select name="platform" required>
+              <option value="">Select one…</option>
+              <option>TikTok</option>
+              <option>Instagram Reels</option>
+              <option>YouTube Shorts</option>
+              <option>All three / multi-platform</option>
+              <option>Not yet publishing</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Your channel / handle (if any)</span>
+            <input type="text" name="handle" placeholder="@your-handle" />
+          </label>
+
+          <label>
+            <span>What kind of legal content do you make?</span>
+            <textarea name="content" rows="4" required placeholder="Tenant rights · employment law · consumer protection…"></textarea>
+          </label>
+
+          <label class="checkbox-label">
+            <input type="checkbox" name="consent" required />
+            <span>I agree to the <a href="/terms">terms</a> and <a href="/privacy">privacy policy</a>.</span>
+          </label>
+
+          <button type="submit" class="btn btn-primary form-submit">Submit application</button>
+
+          <p class="form-note">
+            We'll review within 48 hours and email you back. No spam, no follow-up sequences.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .signup-section { padding: 64px 0 48px; }
+  .signup-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: flex-start;
+  }
+
+  .signup-left .badge { margin-bottom: 18px; }
+  .signup-left h1 { font-size: clamp(34px, 4.5vw, 48px); margin-bottom: 18px; }
+  .lead {
+    font-size: 17px;
+    line-height: 1.65;
+    margin-bottom: 32px;
+  }
+
+  .signup-perks {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 32px;
+  }
+  .signup-perks li {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 18px;
+    align-items: flex-start;
+  }
+  .signup-perks span {
+    display: grid;
+    place-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .signup-perks strong {
+    display: block;
+    color: #fff;
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+  .signup-perks div {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .signup-fineprint {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .signup-fineprint a { color: var(--accent); }
+
+  .signup-form {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 18px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .form-sub { font-size: 13px; color: var(--muted); margin-bottom: 8px; }
+
+  .signup-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .signup-form label span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .signup-form input,
+  .signup-form select,
+  .signup-form textarea {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.15s;
+  }
+  .signup-form input:focus,
+  .signup-form select:focus,
+  .signup-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .signup-form textarea { resize: vertical; }
+
+  .checkbox-label {
+    flex-direction: row !important;
+    align-items: center;
+    gap: 10px !important;
+  }
+  .checkbox-label input { width: 16px; height: 16px; accent-color: var(--accent); }
+  .checkbox-label span { font-size: 13px !important; color: var(--muted) !important; font-weight: 400 !important; }
+  .checkbox-label a { color: var(--accent); }
+
+  .form-submit {
+    margin-top: 8px;
+    padding: 14px 30px;
+  }
+  .form-note {
+    font-size: 12px;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  @media (max-width: 900px) {
+    .signup-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>

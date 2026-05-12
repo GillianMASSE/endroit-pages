@@ -1,0 +1,270 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Pricing — EnDroit" description="Simple, transparent pricing for legal education creators. Free during beta. Pro and Studio plans available.">
+
+  <section class="page-hero">
+    <div class="container" style="text-align:center">
+      <div class="badge" style="margin-bottom:20px">Pricing</div>
+      <h1>Simple pricing.<br/><em>Built for creators, not enterprises.</em></h1>
+      <p class="page-lead" style="margin:24px auto 0;max-width:560px">
+        Free during open beta. Lock in early-creator pricing when we launch.
+        Cancel anytime — no contracts, no hidden fees.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="plans">
+
+        <div class="plan">
+          <div class="plan-header">
+            <h3>Free</h3>
+            <div class="plan-price">
+              <span class="price">€0</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p>For curious solo creators discovering the platform.</p>
+          </div>
+          <a href="/signup" class="btn btn-secondary plan-cta">Start free</a>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>3 videos / month</li>
+            <li>1 connected platform</li>
+            <li>720p renders</li>
+            <li>EnDroit watermark on outputs</li>
+            <li>Community support</li>
+          </ul>
+        </div>
+
+        <div class="plan plan-featured">
+          <div class="plan-tag">Most popular</div>
+          <div class="plan-header">
+            <h3>Pro</h3>
+            <div class="plan-price">
+              <span class="price">€19</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p>For active legal creators publishing regularly.</p>
+          </div>
+          <a href="/signup" class="btn btn-primary plan-cta">Apply for Pro beta</a>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><strong>50 videos / month</strong></li>
+            <li>All 3 platforms connected</li>
+            <li>1080p renders, no watermark</li>
+            <li>Per-platform hashtag adaptation</li>
+            <li>Scheduling and analytics</li>
+            <li>ElevenLabs voice synthesis included</li>
+            <li>Email support · 24h reply</li>
+          </ul>
+        </div>
+
+        <div class="plan">
+          <div class="plan-header">
+            <h3>Studio</h3>
+            <div class="plan-price">
+              <span class="price">€49</span>
+              <span class="price-period">/month</span>
+            </div>
+            <p>For law firms, agencies and creator teams.</p>
+          </div>
+          <a href="/contact" class="btn btn-secondary plan-cta">Contact us</a>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li>Unlimited videos</li>
+            <li>5 seats included, +€8 / extra seat</li>
+            <li>4K renders</li>
+            <li>Team workspace with approvals</li>
+            <li>Custom branding (logo, colors)</li>
+            <li>Priority support · SLA</li>
+            <li>Custom legal disclaimer templates</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-label">Frequently asked</div>
+      <h2>Pricing FAQ</h2>
+
+      <div class="faq">
+        <details>
+          <summary>What does "free during beta" mean?</summary>
+          <p>All paid features are unlocked at no cost while EnDroit is in closed beta. Beta is expected to run through Q3 2026. When we launch publicly, all beta creators get a 50% lifetime discount on Pro and Studio plans.</p>
+        </details>
+        <details>
+          <summary>Can I switch plans later?</summary>
+          <p>Yes. Upgrades are immediate and prorated. Downgrades take effect at the next billing cycle. You keep all your videos and connected accounts when changing plans.</p>
+        </details>
+        <details>
+          <summary>What happens if I exceed my monthly video quota?</summary>
+          <p>We notify you at 80% usage. If you reach 100%, you can upgrade instantly or wait until next month. We never charge overage fees without your explicit consent.</p>
+        </details>
+        <details>
+          <summary>Do you offer student or non-profit discounts?</summary>
+          <p>Yes — law students get Pro free for 12 months with a valid .edu or university email. Non-profit organisations get 30% off Studio. <a href="/contact" style="color:var(--accent)">Contact us</a> with proof.</p>
+        </details>
+        <details>
+          <summary>How does billing work?</summary>
+          <p>Monthly subscriptions billed in EUR via Stripe. Invoices are issued automatically. VAT included for EU customers. Annual plans available with 2 months free.</p>
+        </details>
+        <details>
+          <summary>Can I cancel anytime?</summary>
+          <p>Yes. Cancel with one click from your account. Your subscription stays active until the end of the current period. We don't ask why. No retention email funnels.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="section">
+    <div class="container" style="text-align:center">
+      <h2>Still have questions?</h2>
+      <p style="margin:14px auto 28px;max-width:480px">Our team usually replies within 4 hours during European business days.</p>
+      <a href="/contact" class="btn btn-primary">Contact us</a>
+    </div>
+  </section>
+
+</Layout>
+
+<style>
+  .page-hero { padding: 72px 0 24px; }
+  .page-hero h1 em { font-style: normal; color: var(--accent); }
+  .page-lead { font-size: 18px; line-height: 1.6; }
+
+  .plans {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    align-items: stretch;
+  }
+  .plan {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px 28px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-featured {
+    border-color: var(--accent-glow);
+    background: linear-gradient(180deg, rgba(255,215,0,0.05), var(--surface));
+    box-shadow: 0 20px 40px -20px rgba(255,215,0,0.15);
+  }
+  .plan-tag {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #0a0a0f;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 5px 12px;
+    border-radius: 100px;
+  }
+  .plan-header h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .plan-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+  .price {
+    font-size: 44px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: -1.5px;
+  }
+  .price-period {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .plan-header p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.5;
+    min-height: 42px;
+    margin-bottom: 22px;
+  }
+  .plan-cta { width: 100%; padding: 12px 20px; }
+  .plan-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 24px 0;
+  }
+  .plan-features {
+    list-style: none;
+    padding: 0;
+  }
+  .plan-features li {
+    position: relative;
+    padding-left: 22px;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .plan-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 800;
+  }
+
+  /* ── FAQ ── */
+  .faq { margin-top: 32px; }
+  .faq details {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  .faq details[open] { border-color: var(--accent-glow); }
+  .faq summary {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    padding: 18px 22px;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq summary::after {
+    content: '+';
+    font-size: 20px;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .faq details[open] summary::after { content: '−'; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq details p {
+    padding: 0 22px 20px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+
+  @media (max-width: 900px) {
+    .plans { grid-template-columns: 1fr; }
+    .plan-featured { transform: none; }
+  }
+</style>
