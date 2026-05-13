@@ -8,7 +8,7 @@ function isActive(href: string): boolean {
 <header>
   <div class="container nav-inner">
     <a class="nav-logo" href="/">
-      <span class="nav-mark">⚖</span>
+      <img src="/icon.png" alt="EnDroit" class="nav-mark" width="28" height="28" />
       <strong>En</strong><span>Droit</span>
     </a>
 
@@ -68,15 +68,11 @@ function isActive(href: string): boolean {
   }
   .nav-logo strong { color: var(--accent); }
   .nav-mark {
-    display: inline-grid;
-    place-items: center;
+    display: block;
     width: 28px;
     height: 28px;
     border-radius: 8px;
-    background: var(--accent-soft);
-    border: 1px solid var(--accent-glow);
-    color: var(--accent);
-    font-size: 16px;
+    object-fit: cover;
     margin-right: 4px;
   }
 
