@@ -42,19 +42,31 @@ const fullTitle = title.includes('EnDroit') ? title : `${title} — EnDroit`;
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #0F1E33;
-      --surface: #1A2B40;
-      --surface-2: #243A55;
-      --border: rgba(237, 228, 210, 0.10);
-      --border-strong: rgba(237, 228, 210, 0.20);
-      --accent: #D9A451;
-      --accent-soft: rgba(217, 164, 81, 0.12);
-      --accent-glow: rgba(217, 164, 81, 0.30);
-      --accent2: #C89243;
-      --text: #EDE4D2;
-      --muted: #9C8C7A;
-      --success: #6FB04A;
-      --danger: #C9483A;
+      /* 60% — Base navy (sourced from logo sky) */
+      --bg: #0E1A2F;
+      --surface: #162538;
+      --surface-2: #1F3148;
+
+      /* 30% — Warm neutrals (parchment + stone) */
+      --text: #F2EAD8;
+      --muted: #A89C84;
+
+      /* 10% — Brass & bordeaux accents */
+      --accent: #C9913E;
+      --accent-hover: #DBA557;
+      --accent-soft: rgba(201, 145, 62, 0.12);
+      --accent-glow: rgba(201, 145, 62, 0.28);
+      --accent2: #A06D2E;
+      --accent3: #7A2832;
+
+      /* Borders — warm-tinted, not cold white */
+      --border: rgba(242, 234, 216, 0.09);
+      --border-strong: rgba(242, 234, 216, 0.18);
+
+      /* Status — patinated, not saturated */
+      --success: #6B8E5A;
+      --danger: #B25849;
+
       --radius: 14px;
       --radius-sm: 10px;
       --maxw: 1100px;
@@ -98,9 +110,9 @@ const fullTitle = title.includes('EnDroit') ? title : `${title} — EnDroit`;
     }
     .btn-primary {
       background: var(--accent);
-      color: #0F1E33;
+      color: #0E1A2F;
     }
-    .btn-primary:hover { transform: translateY(-1px); background: #EFBF6D; }
+    .btn-primary:hover { transform: translateY(-1px); background: var(--accent-hover); }
     .btn-secondary {
       background: var(--surface);
       border-color: var(--border-strong);
