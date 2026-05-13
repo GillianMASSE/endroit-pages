@@ -1,6 +1,6 @@
 # EnDroit — Marketing site
 
-The marketing site at [endroit.app](https://endroit.app), built with Astro and deployed to GitHub Pages.
+The marketing site at [en-droit.app](https://en-droit.app), built with Astro and deployed to GitHub Pages.
 
 ## Stack
 
@@ -39,7 +39,7 @@ root — it is required by TikTok to verify domain ownership for the Developer P
 ## Deployment
 
 Every push to `main` triggers a GitHub Action that builds the site and deploys it to
-GitHub Pages. The `CNAME` file in `public/` configures the custom domain `endroit.app`.
+GitHub Pages. The `CNAME` file in `public/` configures the custom domain `en-droit.app`.
 
 ## Brand
 

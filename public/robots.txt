@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://endroit.app/sitemap-index.xml
+Sitemap: https://en-droit.app/sitemap-index.xml

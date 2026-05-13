@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://endroit.app',
+  site: 'https://en-droit.app',
   output: 'static',
   trailingSlash: 'ignore',
   build: {
